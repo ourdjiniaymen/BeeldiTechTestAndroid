@@ -1,14 +1,17 @@
 package com.example.beelditechtest
 
 import android.content.Context
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import org.json.JSONArray
 import java.io.IOException
 
 class EquipmentDataSource(private val context: Context) {
 
-    suspend fun getEquipments(): List<EquipmentEntity> = withContext(Dispatchers.IO) {
+     fun getEquipmentsFlow(): Flow<List<EquipmentEntity>> = flow {
         try {
             val jsonString = context.assets.open("equipments.json")
                 .bufferedReader()
@@ -31,11 +34,12 @@ class EquipmentDataSource(private val context: Context) {
                 equipmentEntities.add(equipmentEntity)
             }
 
-            equipmentEntities
+             emit(equipmentEntities)
         } catch (e: IOException) {
-            emptyList()
+            emit(emptyList())
         } catch (e: Exception) {
-            emptyList()
+            Log.e("EquipmentDataSource", "Erreur lors de la lecture du fichier JSON", e)
+            emit(emptyList())
         }
-    }
+    }.flowOn(Dispatchers.IO)
 }

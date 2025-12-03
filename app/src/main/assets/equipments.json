@@ -37,6 +37,7 @@
   },
   {
     "id": "5",
+    "name" : "test",
     "brand": "Dorma",
     "model": "TSA 160",
     "serialNumber": "DOR-2022-234",
