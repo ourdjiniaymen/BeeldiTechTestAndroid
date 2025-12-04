@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.beelditechtest.data.datasource.EquipmentDataSource
+import com.example.beelditechtest.data.repository.EquipmentRepositoryImpl
 import com.example.beelditechtest.presentation.equipmentList.EquipmentListScreen
 import com.example.beelditechtest.presentation.equipmentList.EquipmentListViewModel
 import com.example.beelditechtest.presentation.theme.BeeldiTechTestTheme
@@ -22,7 +23,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val dataSource = EquipmentDataSource(context = this)
-        val viewModel = EquipmentListViewModel(dataSource)
+        val repository = EquipmentRepositoryImpl(dataSource)
+        val viewModel = EquipmentListViewModel(repository)
         enableEdgeToEdge()
         setContent {
             BeeldiTechTestTheme {

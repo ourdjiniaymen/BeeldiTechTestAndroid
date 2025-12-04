@@ -2,7 +2,7 @@ package com.example.beelditechtest.presentation.equipmentList
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.beelditechtest.data.datasource.EquipmentDataSource
+import com.example.beelditechtest.domain.repository.EquipmentRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class EquipmentListViewModel(private val dataSource: EquipmentDataSource) : ViewModel() {
+class EquipmentListViewModel(private val equipmentRepository: EquipmentRepository) : ViewModel() {
 
     private val _state = MutableStateFlow(EquipmentListState())
     val state : StateFlow<EquipmentListState> = _state.asStateFlow()
@@ -24,7 +24,7 @@ class EquipmentListViewModel(private val dataSource: EquipmentDataSource) : View
 
     fun loadEquipments() {
         viewModelScope.launch {
-            dataSource.getEquipmentsFlow()
+            equipmentRepository.getEquipments()
                 .onStart {
                     // Avant de commencer, on met isLoading à true
                     _state.update { currentState ->
@@ -44,7 +44,7 @@ class EquipmentListViewModel(private val dataSource: EquipmentDataSource) : View
                     // Quand on reçoit les données, on met à jour le state
                     _state.update { currentState ->
                         currentState.copy(
-                            equipmentEntities = equipments,
+                            equipments = equipments,
                             isLoading = false,
                             error = null
                         )

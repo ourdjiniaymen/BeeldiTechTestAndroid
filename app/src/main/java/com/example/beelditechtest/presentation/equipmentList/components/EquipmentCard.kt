@@ -12,11 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.beelditechtest.data.model.EquipmentEntity
+import com.example.beelditechtest.domain.model.Equipment
 
 @Composable
 fun EquipmentCard(
-    equipmentEntity: EquipmentEntity,
+    equipment: Equipment,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -29,22 +29,22 @@ fun EquipmentCard(
                 .padding(16.dp)
         ) {
             Text(
-                text = equipmentEntity.name,
+                text = equipment.name,
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "${equipmentEntity.brand} - ${equipmentEntity.model}",
+                text = "${equipment.brand} - ${equipment.model}",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 4.dp)
             )
             Text(
-                text = "Série: ${equipmentEntity.serialNumber}",
+                text = "Série: ${equipment.serialNumber}",
                 style = MaterialTheme.typography.headlineLarge,
                 modifier = Modifier.padding(top = 4.dp)
             )
             Text(
-                text = equipmentEntity.location,
+                text = equipment.location,
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.Red,
                 modifier = Modifier.padding(top = 8.dp)
