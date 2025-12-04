@@ -13,10 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.beelditechtest.presentation.equipmentList.EquipmentListScreen
-import com.example.beelditechtest.presentation.equipmentList.EquipmentListViewModel
 import com.example.beelditechtest.presentation.theme.BeeldiTechTestTheme
 import com.example.beelditechtest.presentation.theme.screenBackground
-import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +31,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 

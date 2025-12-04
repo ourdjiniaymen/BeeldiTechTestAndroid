@@ -13,8 +13,6 @@ class BeeldiTechTestApp : Application() {
 
         // Initialiser Koin
         startKoin {
-
-
             // Contexte Android
             androidContext(this@BeeldiTechTestApp)
 
@@ -22,7 +20,7 @@ class BeeldiTechTestApp : Application() {
             modules(
                 dataModule,
                 domainModule,
-                presentationModule
+                presentationModule,
             )
         }
     }

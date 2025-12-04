@@ -7,5 +7,5 @@ data class Equipment(
     val model: String,
     val serialNumber: String,
     val location: String,
-    val type: EquipmentType
+    val type: EquipmentType,
 )

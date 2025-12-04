@@ -2,7 +2,6 @@ package com.example.beelditechtest.presentation.equipmentList
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.beelditechtest.domain.repository.EquipmentRepository
 import com.example.beelditechtest.domain.usecase.GetEquipmentsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,10 +12,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class EquipmentListViewModel(private val getEquipmentsUseCase: GetEquipmentsUseCase) : ViewModel() {
-
     private val _state = MutableStateFlow(EquipmentListState())
     val state: StateFlow<EquipmentListState> = _state.asStateFlow()
-
 
     init {
         loadEquipments()
@@ -36,7 +33,7 @@ class EquipmentListViewModel(private val getEquipmentsUseCase: GetEquipmentsUseC
                     _state.update { currentState ->
                         currentState.copy(
                             isLoading = false,
-                            error = exception.message ?: "Erreur inconnue"
+                            error = exception.message ?: "Erreur inconnue",
                         )
                     }
                 }
@@ -46,11 +43,10 @@ class EquipmentListViewModel(private val getEquipmentsUseCase: GetEquipmentsUseC
                         currentState.copy(
                             equipments = equipments,
                             isLoading = false,
-                            error = null
+                            error = null,
                         )
                     }
                 }
         }
     }
-
 }

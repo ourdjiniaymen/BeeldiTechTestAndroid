@@ -7,5 +7,3 @@ import kotlinx.coroutines.flow.Flow
 class GetEquipmentsUseCase(private val equipmentRepository: EquipmentRepository) {
     operator fun invoke(): Flow<List<Equipment>> = equipmentRepository.getEquipments()
 }
-
-

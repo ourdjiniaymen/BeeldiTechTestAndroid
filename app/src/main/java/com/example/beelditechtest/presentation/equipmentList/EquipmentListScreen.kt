@@ -21,7 +21,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun EquipmentListScreen(
     viewModel: EquipmentListViewModel = koinViewModel(),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val state by viewModel.state.collectAsState()
 
@@ -29,7 +29,7 @@ fun EquipmentListScreen(
         state.isLoading -> {
             Box(
                 modifier = modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
+                contentAlignment = Alignment.Center,
             ) {
                 CircularProgressIndicator()
             }
@@ -38,32 +38,32 @@ fun EquipmentListScreen(
         state.error != null -> {
             Box(
                 modifier = modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
+                contentAlignment = Alignment.Center,
             ) {
                 Text(
                     text = "Erreur: ${state.error}",
-                    color = MaterialTheme.colorScheme.error
+                    color = MaterialTheme.colorScheme.error,
                 )
             }
         }
 
         else -> {
             LazyColumn(
-                modifier = modifier
-                    .fillMaxSize()
-                    .padding(16.dp)
+                modifier =
+                    modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
             ) {
                 items(state.equipments) { equipment ->
                     EquipmentCard(
                         equipment = equipment,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 8.dp)
+                        modifier =
+                            Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp),
                     )
                 }
             }
         }
     }
 }
-
-

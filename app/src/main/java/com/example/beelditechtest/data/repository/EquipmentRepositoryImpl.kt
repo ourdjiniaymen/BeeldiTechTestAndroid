@@ -15,5 +15,4 @@ class EquipmentRepositoryImpl(private val dataSource: EquipmentDataSource) : Equ
             }
         }
     }
-
 }

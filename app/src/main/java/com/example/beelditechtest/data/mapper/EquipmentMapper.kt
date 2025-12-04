@@ -12,12 +12,12 @@ fun EquipmentEntity.toDomain(): Equipment {
         model = this.model,
         serialNumber = this.serialNumber,
         location = this.location,
-        type = when (this.type) {
-            0 -> EquipmentType.TYPE_0
-            1 -> EquipmentType.TYPE_1
-            2 -> EquipmentType.TYPE_2
-            else -> EquipmentType.UNKNOWN
-        }
-
+        type =
+            when (this.type) {
+                0 -> EquipmentType.TYPE_0
+                1 -> EquipmentType.TYPE_1
+                2 -> EquipmentType.TYPE_2
+                else -> EquipmentType.UNKNOWN
+            },
     )
 }

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("org.jlleitschuh.gradle.ktlint")
 }
 
 android {
@@ -25,7 +26,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -65,4 +66,16 @@ dependencies {
 
     // Koin pour ViewModel
     implementation("io.insert-koin:koin-androidx-compose-navigation:3.5.3")
+}
+
+// Configuration Ktlint
+configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+    version.set("1.0.1")
+    android.set(true)
+    ignoreFailures.set(false)
+
+    reporters {
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
+    }
 }

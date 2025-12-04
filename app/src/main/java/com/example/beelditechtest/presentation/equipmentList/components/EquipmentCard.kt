@@ -17,37 +17,38 @@ import com.example.beelditechtest.domain.model.Equipment
 @Composable
 fun EquipmentCard(
     equipment: Equipment,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
         ) {
             Text(
                 text = equipment.name,
                 style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
             )
             Text(
                 text = "${equipment.brand} - ${equipment.model}",
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(top = 4.dp)
+                modifier = Modifier.padding(top = 4.dp),
             )
             Text(
                 text = "Série: ${equipment.serialNumber}",
                 style = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.padding(top = 4.dp)
+                modifier = Modifier.padding(top = 4.dp),
             )
             Text(
                 text = equipment.location,
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.Red,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(top = 8.dp),
             )
         }
     }
