@@ -1,4 +1,4 @@
-package com.example.beelditechtest
+package com.example.beelditechtest.presentation.equipmentList
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +20,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.beelditechtest.presentation.equipmentList.EquipmentListViewModel
+import com.example.beelditechtest.data.model.EquipmentEntity
+import com.example.beelditechtest.presentation.equipmentList.components.EquipmentCard
 
 @Composable
 fun EquipmentListScreen(
@@ -67,41 +70,4 @@ fun EquipmentListScreen(
     }
 }
 
-@Composable
-fun EquipmentCard(
-    equipmentEntity: EquipmentEntity,
-    modifier: Modifier = Modifier
-) {
-    Card(
-        modifier = modifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            Text(
-                text = equipmentEntity.name,
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold
-            )
-            Text(
-                text = "${equipmentEntity.brand} - ${equipmentEntity.model}",
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(top = 4.dp)
-            )
-            Text(
-                text = "Série: ${equipmentEntity.serialNumber}",
-                style = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.padding(top = 4.dp)
-            )
-            Text(
-                text = equipmentEntity.location,
-                style = MaterialTheme.typography.bodySmall,
-                color = Color.Red,
-                modifier = Modifier.padding(top = 8.dp)
-            )
-        }
-    }
-}
+
