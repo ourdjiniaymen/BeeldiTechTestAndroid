@@ -12,24 +12,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.beelditechtest.data.datasource.EquipmentDataSource
-import com.example.beelditechtest.data.repository.EquipmentRepositoryImpl
 import com.example.beelditechtest.presentation.equipmentList.EquipmentListScreen
 import com.example.beelditechtest.presentation.equipmentList.EquipmentListViewModel
 import com.example.beelditechtest.presentation.theme.BeeldiTechTestTheme
 import com.example.beelditechtest.presentation.theme.screenBackground
+import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val dataSource = EquipmentDataSource(context = this)
-        val repository = EquipmentRepositoryImpl(dataSource)
-        val viewModel = EquipmentListViewModel(repository)
         enableEdgeToEdge()
         setContent {
             BeeldiTechTestTheme {
                 Scaffold(modifier = Modifier.fillMaxSize().background(screenBackground)) { innerPadding ->
-                    EquipmentListScreen(viewModel, Modifier.padding(innerPadding))
+                    EquipmentListScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }

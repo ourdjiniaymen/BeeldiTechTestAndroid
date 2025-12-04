@@ -16,10 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.beelditechtest.presentation.equipmentList.components.EquipmentCard
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun EquipmentListScreen(
-    viewModel: EquipmentListViewModel,
+    viewModel: EquipmentListViewModel = koinViewModel(),
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.state.collectAsState()

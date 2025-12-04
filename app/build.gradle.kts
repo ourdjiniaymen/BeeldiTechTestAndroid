@@ -57,4 +57,12 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    implementation("io.insert-koin:koin-android:3.5.3")
+
+    // Koin pour Jetpack Compose
+    implementation("io.insert-koin:koin-androidx-compose:3.5.3")
+
+    // Koin pour ViewModel
+    implementation("io.insert-koin:koin-androidx-compose-navigation:3.5.3")
 }
