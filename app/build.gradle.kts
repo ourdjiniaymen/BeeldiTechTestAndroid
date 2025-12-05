@@ -66,6 +66,13 @@ dependencies {
 
     // Koin pour ViewModel
     implementation("io.insert-koin:koin-androidx-compose-navigation:3.5.3")
+
+    // Mockito
+    testImplementation("org.mockito:mockito-core:5.20.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:6.1.0")
+
+    // Coroutines
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
 }
 
 // Configuration Ktlint
