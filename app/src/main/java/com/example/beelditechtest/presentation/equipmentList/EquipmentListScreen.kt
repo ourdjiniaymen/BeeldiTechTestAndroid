@@ -20,8 +20,9 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun EquipmentListScreen(
-    viewModel: EquipmentListViewModel = koinViewModel(),
     modifier: Modifier = Modifier,
+    viewModel: EquipmentListViewModel = koinViewModel(),
+    onEquipmentClick: (String) -> Unit = {},
 ) {
     val state by viewModel.state.collectAsState()
 
@@ -57,6 +58,7 @@ fun EquipmentListScreen(
                 items(state.equipments) { equipment ->
                     EquipmentCard(
                         equipment = equipment,
+                        onClick = onEquipmentClick,
                         modifier =
                             Modifier
                                 .fillMaxWidth()

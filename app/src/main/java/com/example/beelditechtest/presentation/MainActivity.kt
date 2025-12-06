@@ -12,7 +12,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.beelditechtest.presentation.equipmentDetails.EquipmentDetailsScreen
+import androidx.navigation.compose.rememberNavController
+import com.example.beelditechtest.presentation.navigation.NavGraph
 import com.example.beelditechtest.presentation.theme.BeeldiTechTestTheme
 import com.example.beelditechtest.presentation.theme.screenBackground
 
@@ -21,10 +22,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             BeeldiTechTestTheme {
-                Scaffold(modifier = Modifier.fillMaxSize().background(screenBackground)) { innerPadding ->
-                    // EquipmentListScreen(modifier = Modifier.padding(innerPadding))
-                    EquipmentDetailsScreen(id = "66", modifier = Modifier.padding(innerPadding))
+                Scaffold(
+                    modifier =
+                        Modifier
+                            .fillMaxSize()
+                            .background(screenBackground),
+                ) { innerPadding ->
+                    NavGraph(modifier = Modifier.padding(innerPadding), navController)
                 }
             }
         }
