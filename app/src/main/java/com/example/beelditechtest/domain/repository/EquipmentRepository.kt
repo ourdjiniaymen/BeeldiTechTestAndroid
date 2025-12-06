@@ -5,4 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface EquipmentRepository {
     fun getEquipments(): Flow<List<Equipment>>
+
+    fun getEquipmentById(id: String): Flow<Equipment?>
 }

@@ -15,4 +15,10 @@ class EquipmentRepositoryImpl(private val dataSource: EquipmentDataSource) : Equ
             }
         }
     }
+
+    override fun getEquipmentById(id: String): Flow<Equipment?> {
+        return dataSource.getEquipmentsFlow().map { equipmentEntities ->
+            equipmentEntities.find { it.id == id }?.toDomain()
+        }
+    }
 }

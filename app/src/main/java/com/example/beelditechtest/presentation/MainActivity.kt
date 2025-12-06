@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.beelditechtest.presentation.equipmentList.EquipmentListScreen
+import com.example.beelditechtest.presentation.equipmentDetails.EquipmentDetailsScreen
 import com.example.beelditechtest.presentation.theme.BeeldiTechTestTheme
 import com.example.beelditechtest.presentation.theme.screenBackground
 
@@ -23,7 +23,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             BeeldiTechTestTheme {
                 Scaffold(modifier = Modifier.fillMaxSize().background(screenBackground)) { innerPadding ->
-                    EquipmentListScreen(modifier = Modifier.padding(innerPadding))
+                    // EquipmentListScreen(modifier = Modifier.padding(innerPadding))
+                    EquipmentDetailsScreen(id = "66", modifier = Modifier.padding(innerPadding))
                 }
             }
         }
